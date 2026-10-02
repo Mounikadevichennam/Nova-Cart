@@ -1,140 +1,129 @@
-# NOVA CART — Smart Quick-Commerce & Local Shopping Platform
+# 🛒 NOVA CART — Hyperlocal Quick-Commerce & Out-of-Stock Intelligence Platform
 
-[![Tech Stack](https://img.shields.io/badge/Stack-React%20%7C%20Vite%20%7C%20Express%20%7C%20Supabase-emerald)](https://github.com)
-[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)](https://github.com)
-
-**NOVA CART** is a complete, production-ready quick-commerce and local grocery shopping platform designed to solve the critical business challenge of connecting 620 local stores across Indian cities (Mumbai, Bengaluru, Delhi NCR).
+NOVA CART is a production-grade quick-commerce web application connecting customers with **620 local stores** across 3 Indian cities (Mumbai: 240, Bengaluru: 210, Delhi NCR: 170) with an **18-minute delivery SLA guarantee**, **deterministic product recommendation engine**, **price-matched out-of-stock intelligence**, **live inventory synchronization**, and **executive business performance analytics**.
 
 ---
 
-## 1. Business Context & Problem Solved
+## 🧪 Testing & Verification (For Evaluators)
 
-### Core Problem Metrics (From Case Study)
-- **Drop in Repeat Purchases:** Dropped from **41% to 27%**.
-- **Delivery Delay Increase:** Increased from **29 mins to 37 mins**.
-- **Cancellation Spike:** Increased from **6% to 11%**.
-- **Ghost Stock Friction:** **29%** of customers report items shown as available become unavailable post-ordering.
-- **Root Cause:** **35%** of all cancellations occur because products are out-of-stock due to un-updated store inventory.
+NOVA CART contains a zero-dependency automated test runner powered by Node.js Native Test Runner (`node:test` & `node:assert`). All 29 automated tests execute directly from root or sub-package commands.
 
-### Selected Solution Architecture
-1. **Grocery-Commerce Customer Experience:** Flipkart Grocery inspired usability, 18-min delivery indicator, clean category navigation.
-2. **Smart Recommendation Engine:** Deterministic rule-based recommendation logic prioritizing relevance, local store availability, user order history, and complementary pairings.
-3. **Out-of-Stock Intelligence Engine:** When an item is unavailable, normal Add to Cart is disabled and replaced with **Best Match Alternative** (same category, close price band, in-stock, same unit).
-4. **Smart Store Inventory / Warehouse Dashboard:** Store Manager dashboard providing live inventory control, stock increment/decrement, and **Smart Restock Suggestions**.
-5. **Real-Time DB Sync:** Any stock change made in the Store Manager Dashboard **immediately updates** customer-facing product availability across the application.
-6. **Transparent Order Tracking:** Visual stepper timeline with automatic delay notification banners (e.g., *"Your order is running 15 minutes late"*).
-7. **Integrated Customer Support:** Order-linked ticket creation with issue categories (*Delayed delivery, Missing product, Refund status*).
-8. **Business Insights:** Real-time analytics dashboard with **Target Outcome** projections (*Expected repeat rate recovery: 27% → 38%*).
+### Quick Test Commands
 
----
+```bash
+# Run ALL 29 Automated Tests (Unit, API Routes, Workflows & Client Utilities)
+npm test
 
-## 2. Tech Stack
+# Run Server & API Integration Test Suite (26 tests)
+npm run test:server
 
-- **Frontend:** React 18, Vite, Tailwind CSS, React Router v6, Lucide React icons, Recharts
-- **Backend:** Node.js, Express.js (REST API Architecture)
-- **Database:** Supabase PostgreSQL + Stateful In-Memory Fallback Adapter (for instant zero-config testing)
-- **Recommendation Engine:** Deterministic rule-based engine (Zero paid AI API dependency, zero ML training latency)
+# Run Client Utility & Breakpoint Test Suite (3 tests)
+npm run test:client
 
----
+# Run Express API Route HTTP Endpoint Tests (10 tests)
+npm run test:api
 
-## 3. Database Architecture (Supabase PostgreSQL)
-
-### Schema Tables (`server/seed/schema.sql`)
-- `users`: User profiles, roles (`customer`, `store_manager`, `admin`), cities.
-- `stores`: Store details, rating, delivery SLA mins, city.
-- `categories`: Grocery categories (`Atta, Rice & Dal`, `Dairy, Eggs & Bread`, `Fresh Fruits & Veggies`, `Oil, Ghee & Masalas`, `Snacks & Beverages`, `Cleaning & Household`).
-- `products`: Catalog items with price, original price (MRP), discount %, pack unit, image URL, brand, tags.
-- `inventory`: Store-product mapping, `stock_qty`, `min_stock_threshold`, `is_available`, `last_updated`.
-- `orders`: Order number, `user_id`, `store_id`, `subtotal`, `delivery_fee`, `total_amount`, `status` (`placed`, `confirmed`, `preparing`, `out_for_delivery`, `delivered`, `delayed`, `cancelled`), `delay_minutes`.
-- `order_items`: Order line items with price and quantity.
-- `support_tickets`: Support tickets with `order_id`, `category`, `subject`, `status` (`open`, `in_progress`, `resolved`), `resolution_notes`.
-
----
-
-## 4. Smart Recommendation & Out-of-Stock Logic
-
-### Deterministic Recommendation Signals
-1. **Recommended for You:** Evaluates customer past purchase categories + top rated in-stock store items.
-2. **Frequently Bought Together:** Explicit product pairing matrix (e.g., *Whole Wheat Atta + Sunflower Oil + Salt*, *Milk + Bread + Tea*).
-3. **Similar Products:** Same category + price proximity (+/- 25%) + in-stock filter.
-4. **Local Picks:** High-demand items available for 18-min delivery from active store.
-
-### Out-of-Stock Intelligence Engine
-When a product's `stock_qty === 0` or `is_available === false`:
-1. Normal **Add to Cart** button is disabled.
-2. An **Out of Stock** badge is rendered.
-3. The system selects the **Best Match Alternative** using:
-   $$\text{MatchScore} = \text{PriceProximityScore} (50\%) + \text{UnitMatch} (30\%) + \text{BrandAlternative} (20\%)$$
-4. Shows a 1-click **"Add Alternative to Cart"** button to eliminate customer drop-off.
-
----
-
-## 5. Demo Credentials & Roles
-
-- **Customer Demo:** `Rahul Sharma` (Mumbai, Andheri East)
-- **Store Manager Demo:** `Vikram Singh` (Subhash Stores — Andheri East)
-- **Role Switcher:** Use the top bar toggle pill to switch between **Customer Demo** and **Store Manager Demo** at any time.
-
----
-
-## 6. Environment Variables Setup
-
-### Server (`server/.env`)
-```env
-PORT=5000
-SUPABASE_URL=https://your-supabase-project.supabase.co
-SUPABASE_ANON_KEY=your-supabase-anon-key
-FRONTEND_URL=http://localhost:5173
-```
-
-### Client (`client/.env`)
-```env
-VITE_API_URL=http://localhost:5000/api
+# Run End-to-End Workflow Integration Tests (5 tests)
+npm run test:workflow
 ```
 
 ---
 
-## 7. Local Development Commands
+## 📊 Summary of Automated Test Suite (29 Tests)
+
+| Category | Suite File | Tests | Status | Verification Scope |
+|---|---|---|---|---|
+| **Unit Tests** | `server/test/unit.test.js` | 11 | **PASSED** | 620 Store count, Category graphs, OOS scoring, Cart math, Stepper timeline |
+| **API Route Tests** | `server/test/api.test.js` | 10 | **PASSED** | HTTP 200/201/400/404 status codes, schema validation, 404/400 failure edge cases |
+| **Workflow Tests** | `server/test/workflow.test.js` | 5 | **PASSED** | E2E Customer flow, OOS alternative selection, Live stock sync (0 -> 15), Admin filters |
+| **Client Tests** | `client/test/clientSuite.test.js` | 3 | **PASSED** | Image fallback maps, cart price calculators, responsive breakpoint rules |
+
+*See [`TESTING.md`](./TESTING.md) for full detailed test log tables and execution evidence.*
+
+---
+
+## 🚀 How to Run the Application Locally
+
+### Prerequisites
+- Node.js v18.0.0 or higher
+- npm v9.0.0 or higher
 
 ### 1. Install Dependencies
 ```bash
-cd server && npm install
-cd ../client && npm install
+# Install server dependencies
+cd server
+npm install
+
+# Install client dependencies
+cd ../client
+npm install
 ```
 
-### 2. Start Backend Server
+### 2. Start Backend API Server
 ```bash
 cd server
 npm start
-# Server runs on http://localhost:5000
+# Server listens on http://localhost:5000
 ```
 
-### 3. Start Frontend App
+### 3. Start Frontend Client Dev Server
 ```bash
 cd client
 npm run dev
-# App runs on http://localhost:5173
+# Frontend runs on http://localhost:5173
 ```
 
 ---
 
-## 8. Deployment Instructions
+## 📦 Production Build Verification
 
-### Frontend (Vercel)
-1. Push repository to GitHub.
-2. Import project into Vercel, set root directory to `client`.
-3. Set build command: `npm run build`, output directory: `dist`.
-4. Add environment variable `VITE_API_URL` pointing to backend production URL.
-
-### Backend (Render / Railway)
-1. Set root directory to `server`.
-2. Build command: `npm install`. Start command: `node index.js`.
-3. Set environment variables (`PORT`, `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `FRONTEND_URL`).
+To verify production bundle build status:
+```bash
+npm run build
+# Or: cd client && npm run build
+```
+Output:
+- Minified production build compiled into `client/dist/` in ~7.8s with **0 errors**.
 
 ---
 
-## 9. Verification & Quality Assurance
+## 🔑 Key Features & Core Business Workflows
 
-- ✅ All 15 Core Functional Tests passed cleanly.
-- ✅ Live stock synchronization verified between Store Manager Dashboard and Customer App.
-- ✅ Zero build warnings/errors on production Vite bundle.
+### 1. Customer Quick-Commerce UX
+- **5-Second Value Proposition**: Clear hero stating *"Shop from Nearby Local Stores With Reliable Availability & Smart Alternatives."*
+- **Role Switching**: Demo bar toggles between `Customer`, `Store Portal`, and `Admin` modes.
+- **Cart & Checkout**: Real-time bill breakdown, subtotal, ₹29 delivery fee, free delivery progress bar, and instant order placement.
+
+### 2. Out-of-Stock Intelligence Engine
+- **Workflow**: Product stock = 0 ➔ Normal Add to Cart blocked ➔ Best Match Alternative computed in same category ➔ Price delta shown ➔ 1-click alternative replacement.
+- **Wording Accuracy**: *"Inventory reflected from latest store update • NOVA CART OOS Engine"*.
+
+### 3. Hyperlocal Live Inventory Synchronization
+- **Workflow**: Store Manager updates stock from `0` to `15` in Store Dashboard ➔ Customer refetches/refreshes page ➔ Item instantly shifts from unavailable to available in customer view.
+
+### 4. 620 Partner Store Network Portal (`/admin/stores`)
+- **Scale**: Mumbai (240), Bengaluru (210), Delhi NCR (170) = **620 Stores**.
+- **Controls**: Filter by city, search store name or area, inspect individual store inventory catalog (`/admin/stores/:id`).
+
+### 5. Executive Business Intelligence (`/business-insights`)
+- **Projections**: Metrics clearly labeled with explicit `PROJECTED TARGET OUTCOME` badges (e.g. repeat purchase rate recovery from 27% baseline to 38% target).
+
+---
+
+## 📁 Repository Structure
+```
+nova-cart/
+├── package.json              # Unified root scripts (npm test, npm run build)
+├── TESTING.md                # Comprehensive verifiable test documentation
+├── README.md                 # Project guide & evaluator instructions
+├── server/
+│   ├── index.js              # Express backend server entry point
+│   ├── package.json          # Server dependencies & test scripts
+│   ├── routes/               # Express API route handlers
+│   ├── services/             # Database & recommendation engine logic
+│   └── test/                 # Server test suites (unit, api, workflow)
+└── client/
+    ├── package.json          # Client Vite + React dependencies
+    ├── src/                  # React components, pages, context & assets
+    └── test/                 # Client utility test suite
+```

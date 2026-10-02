@@ -71,12 +71,12 @@ export default function Home() {
           </div>
 
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight text-white">
-            Shop Fresh Groceries from Local Stores.<br />
-            <span className="text-blue-400">Zero Ghost Stock. Smart Alternatives.</span>
+            Shop from Nearby Local Stores<br />
+            <span className="text-blue-400">With Reliable Availability & Smart Alternatives.</span>
           </h1>
 
           <p className="text-slate-300 text-xs sm:text-base font-medium leading-relaxed">
-            NOVA CART bridges neighborhood stores with 18-minute delivery, deterministic product recommendations, and instant price-matched out-of-stock replacements.
+            NOVA CART connects 620 neighborhood stores across Mumbai, Bengaluru & Delhi NCR with 18-minute delivery SLA, zero ghost stock, and instant price-matched alternatives.
           </p>
 
           <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5">

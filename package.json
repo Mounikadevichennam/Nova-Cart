@@ -1,0 +1,25 @@
+{
+  "name": "nova-cart",
+  "version": "1.0.0",
+  "description": "NOVA CART Quick-Commerce & Hyperlocal Shopping Platform",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test server/test/unit.test.js server/test/api.test.js server/test/workflow.test.js client/test/clientSuite.test.js",
+    "test:server": "cd server && npm test",
+    "test:client": "cd client && npm test",
+    "test:unit": "cd server && npm run test:unit",
+    "test:api": "cd server && npm run test:api",
+    "test:workflow": "cd server && npm run test:workflow",
+    "build": "cd client && npm run build",
+    "dev:server": "cd server && npm start",
+    "dev:client": "cd client && npm run dev"
+  },
+  "keywords": [
+    "quick-commerce",
+    "hyperlocal",
+    "hackathon",
+    "testing",
+    "nova-cart"
+  ]
+}

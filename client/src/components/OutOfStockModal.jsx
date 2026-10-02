@@ -173,7 +173,7 @@ export default function OutOfStockModal({ product, isOpen, onClose }) {
 
         {/* Footer info */}
         <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-500">
-          <span>NOVA CART Out-of-Stock Intelligence Engine</span>
+          <span>Inventory reflected from latest store update • NOVA CART OOS Engine</span>
           <button onClick={onClose} className="text-slate-400 font-semibold hover:underline">
             Cancel
           </button>

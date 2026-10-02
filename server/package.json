@@ -6,7 +6,11 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "node --watch index.js"
+    "dev": "node --watch index.js",
+    "test": "node --test test/unit.test.js test/api.test.js test/workflow.test.js",
+    "test:unit": "node --test test/unit.test.js",
+    "test:api": "node --test test/api.test.js",
+    "test:workflow": "node --test test/workflow.test.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.48.0",
