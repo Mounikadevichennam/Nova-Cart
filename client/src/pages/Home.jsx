@@ -59,38 +59,38 @@ export default function Home() {
   const oosProducts = products.filter(p => p.stock_qty === 0 || !p.is_available);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+    <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-6 sm:space-y-8">
       
-      {/* HERO SECTION — PASSES THE 5-SECOND TEST */}
-      <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden border border-slate-800">
-        <div className="max-w-3xl space-y-4 relative z-10">
+      {/* HERO SECTION — 5-SECOND TEST COMPLIANT */}
+      <div className="bg-[#111827] text-white rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-xl relative overflow-hidden border border-slate-800">
+        <div className="max-w-3xl space-y-3 sm:space-y-4 relative z-10">
           
-          <div className="inline-flex items-center space-x-2 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-extrabold">
-            <Building2 className="w-3.5 h-3.5" />
-            <span>Connecting 620 Local Stores Across Mumbai, Bengaluru & Delhi NCR</span>
+          <div className="inline-flex items-center space-x-1.5 bg-blue-500/10 text-blue-300 border border-blue-500/30 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-extrabold">
+            <Building2 className="w-3.5 h-3.5 shrink-0 text-blue-400" />
+            <span className="truncate">Connecting 620 Stores in Mumbai, Bengaluru & Delhi NCR</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight text-white">
             Shop Fresh Groceries from Local Stores.<br />
-            <span className="text-emerald-400">Zero Ghost Stock. Smart Alternatives.</span>
+            <span className="text-blue-400">Zero Ghost Stock. Smart Alternatives.</span>
           </h1>
 
-          <p className="text-slate-300 text-sm sm:text-base font-medium leading-relaxed">
+          <p className="text-slate-300 text-xs sm:text-base font-medium leading-relaxed">
             NOVA CART bridges neighborhood stores with 18-minute delivery, deterministic product recommendations, and instant price-matched out-of-stock replacements.
           </p>
 
-          <div className="pt-2 flex flex-wrap items-center gap-3">
+          <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5">
             <Link
               to="/categories"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-2xl shadow-lg transition-all flex items-center space-x-2"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs sm:text-sm px-6 py-3.5 rounded-xl sm:rounded-2xl shadow-lg shadow-blue-600/30 transition-all flex items-center justify-center space-x-2"
             >
-              <ShoppingBag className="w-4.5 h-4.5" />
+              <ShoppingBag className="w-4 h-4" />
               <span>Explore All Categories</span>
             </Link>
 
             <a
               href="#oos-demo"
-              className="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs sm:text-sm px-5 py-3.5 rounded-2xl border border-slate-700 transition-all flex items-center space-x-2"
+              className="bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs sm:text-sm px-4 py-3.5 rounded-xl sm:rounded-2xl border border-slate-700 transition-all flex items-center justify-center space-x-2"
             >
               <ShieldAlert className="w-4 h-4 text-amber-400" />
               <span>Try Out-of-Stock Demo</span>
@@ -98,7 +98,7 @@ export default function Home() {
 
             <Link
               to="/admin/stores"
-              className="bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 border border-indigo-500/30 font-bold text-xs sm:text-sm px-4 py-3.5 rounded-2xl transition-all flex items-center space-x-1.5"
+              className="bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 font-bold text-xs sm:text-sm px-4 py-3.5 rounded-xl sm:rounded-2xl transition-all flex items-center justify-center space-x-1.5"
             >
               <Building2 className="w-4 h-4 text-indigo-400" />
               <span>View 620 Store Network</span>
@@ -108,45 +108,41 @@ export default function Home() {
         </div>
 
         {/* Hyperlocal Fulfilled Badge */}
-        <div className="mt-8 pt-6 border-t border-slate-800 flex flex-wrap items-center justify-between text-xs text-slate-400 gap-4">
-          <div className="flex items-center space-x-2">
-            <MapPin className="w-4 h-4 text-emerald-400" />
-            <span>Active Store: <strong className="text-white">Subhash Stores — Andheri East</strong></span>
+        <div className="mt-6 pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between text-[11px] sm:text-xs text-slate-400 gap-2">
+          <div className="flex items-center space-x-1.5">
+            <MapPin className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+            <span>Store: <strong className="text-white">Subhash Stores — Andheri East</strong></span>
           </div>
-          <div className="flex items-center space-x-2">
-            <Clock className="w-4 h-4 text-emerald-400" />
-            <span>Delivery SLA: <strong className="text-white">18 Minutes Guaranteed</strong></span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-            <span>Database Sync: <strong className="text-white">100% Live Availability</strong></span>
+          <div className="flex items-center space-x-1.5">
+            <Clock className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <span>Delivery SLA: <strong className="text-emerald-400">18 Mins Guaranteed</strong></span>
           </div>
         </div>
       </div>
 
       {/* CATEGORY GRID */}
       <div>
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-3">
           <div>
-            <h2 className="text-xl font-black text-gray-900 tracking-tight">Shop by Grocery Category</h2>
-            <p className="text-xs text-gray-500">Explore fresh staples, dairy, vegetables, and daily household needs</p>
+            <h2 className="text-lg sm:text-xl font-black text-white tracking-tight">Grocery Categories</h2>
+            <p className="text-[11px] sm:text-xs text-slate-400">Fresh staples, produce & daily needs</p>
           </div>
-          <Link to="/categories" className="text-xs font-bold text-emerald-600 hover:text-emerald-700 flex items-center">
-            View All Categories <ArrowRight className="w-3.5 h-3.5 ml-1" />
+          <Link to="/categories" className="text-xs font-bold text-blue-400 hover:text-blue-300 flex items-center">
+            View All <ArrowRight className="w-3.5 h-3.5 ml-1" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+        <div className="grid grid-cols-4 sm:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-3">
           {categories.map(cat => (
             <Link
               key={cat.id}
               to={`/categories?slug=${cat.slug}`}
-              className="bg-white border border-gray-200 hover:border-emerald-500 hover:shadow-md p-3.5 rounded-2xl flex flex-col items-center text-center transition-all group"
+              className="bg-[#111827] border border-slate-800 hover:border-blue-500 hover:shadow-lg p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl flex flex-col items-center text-center transition-all group"
             >
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                <ShoppingBag className="w-5 h-5" />
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-1.5 group-hover:scale-110 transition-transform border border-blue-500/20">
+                <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <span className="font-bold text-xs text-gray-900 group-hover:text-emerald-700 line-clamp-1">
+              <span className="font-bold text-[10px] sm:text-xs text-slate-200 group-hover:text-blue-400 line-clamp-1">
                 {cat.name}
               </span>
             </Link>
@@ -155,17 +151,17 @@ export default function Home() {
       </div>
 
       {/* OUT OF STOCK INTELLIGENCE DEMO BANNER */}
-      <div id="oos-demo" className="bg-amber-50 border border-amber-200 rounded-3xl p-6 relative overflow-hidden shadow-sm">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div id="oos-demo" className="bg-[#111827] border border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-6 relative overflow-hidden shadow-md">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div>
-            <div className="inline-flex items-center space-x-1.5 bg-red-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2">
-              <ShieldAlert className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center space-x-1 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-wider mb-1.5">
+              <ShieldAlert className="w-3 h-3" />
               <span>Core Business Feature</span>
             </div>
-            <h3 className="text-lg font-black text-gray-900">
+            <h3 className="text-base sm:text-lg font-black text-white">
               Smart Out-of-Stock Intelligence Engine
             </h3>
-            <p className="text-xs text-gray-600 mt-1 max-w-xl">
+            <p className="text-xs text-slate-400 mt-0.5 max-w-xl">
               29% of quick-commerce users experience ghost availability. Click an unavailable item below to see NOVA CART's price-matched alternative replacement in action!
             </p>
           </div>
@@ -175,14 +171,14 @@ export default function Home() {
               <button
                 key={prod.id}
                 onClick={() => handleOpenOosModal(prod)}
-                className="bg-white border-2 border-red-300 hover:border-red-500 px-3.5 py-2.5 rounded-2xl text-xs text-left shadow-sm transition-all group flex items-center space-x-2"
+                className="bg-[#1f2937] border border-slate-700 hover:border-red-500 p-2 sm:px-3.5 sm:py-2.5 rounded-xl sm:rounded-2xl text-xs text-left shadow-sm transition-all group flex items-center space-x-2 flex-1 sm:flex-none"
               >
-                <img src={prod.image_url} alt={prod.name} className="w-8 h-8 object-contain" />
+                <img src={prod.image_url} alt={prod.name} className="w-7 h-7 sm:w-8 sm:h-8 object-contain shrink-0" />
                 <div>
-                  <span className="block font-bold text-gray-900 line-clamp-1 text-[11px] group-hover:text-red-600">
+                  <span className="block font-bold text-white line-clamp-1 text-[10px] sm:text-[11px] group-hover:text-red-400">
                     {prod.name}
                   </span>
-                  <span className="text-[10px] text-red-600 font-extrabold uppercase">OUT OF STOCK • Click Demo</span>
+                  <span className="text-[9px] sm:text-[10px] text-red-400 font-extrabold uppercase">OUT OF STOCK • Demo</span>
                 </div>
               </button>
             ))}
@@ -195,7 +191,6 @@ export default function Home() {
         <GridSkeleton count={8} />
       ) : (
         <>
-          {/* Section 1: Recommended For You */}
           <RecommendationRow
             title="Recommended for You"
             subtitle="Based on your staple purchases and order history in Mumbai"
@@ -205,7 +200,6 @@ export default function Home() {
             onOpenOosModal={handleOpenOosModal}
           />
 
-          {/* Section 2: Frequently Bought Together */}
           <RecommendationRow
             title="Frequently Bought Together"
             subtitle="Popular recipe & daily pairings ordered together"
@@ -215,7 +209,6 @@ export default function Home() {
             onOpenOosModal={handleOpenOosModal}
           />
 
-          {/* Section 3: Popular Near You / Local Picks */}
           <RecommendationRow
             title="Popular at Subhash Stores"
             subtitle="Fastest delivery items in stock at Andheri East"

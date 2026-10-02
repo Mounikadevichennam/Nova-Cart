@@ -7,35 +7,36 @@ export default function RecommendationRow({ title, subtitle, icon, products, onO
 
   const getIcon = () => {
     switch (icon) {
-      case 'sparkles': return <Sparkles className="w-5 h-5 text-amber-500" />;
-      case 'bag': return <ShoppingBag className="w-5 h-5 text-emerald-600" />;
-      case 'pin': return <MapPin className="w-5 h-5 text-blue-600" />;
-      default: return <Zap className="w-5 h-5 text-emerald-600" />;
+      case 'sparkles': return <Sparkles className="w-5 h-5 text-amber-400" />;
+      case 'bag': return <ShoppingBag className="w-5 h-5 text-blue-400" />;
+      case 'pin': return <MapPin className="w-5 h-5 text-emerald-400" />;
+      default: return <Zap className="w-5 h-5 text-blue-400" />;
     }
   };
 
   return (
-    <section className="my-8">
-      <div className="flex items-end justify-between mb-4">
+    <section className="my-6 sm:my-8">
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-3 sm:mb-4 gap-1">
         <div>
           <div className="flex items-center space-x-2">
             {getIcon()}
-            <h2 className="text-xl font-black text-gray-900 tracking-tight">{title}</h2>
+            <h2 className="text-lg sm:text-xl font-black text-white tracking-tight">{title}</h2>
             {badgeText && (
-              <span className="bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+              <span className="bg-blue-500/20 text-blue-300 border border-blue-500/30 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider hidden sm:inline-block">
                 {badgeText}
               </span>
             )}
           </div>
           {subtitle && (
-            <p className="text-xs text-gray-500 mt-1 font-medium italic">
+            <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5 font-medium italic">
               "{subtitle}"
             </p>
           )}
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {/* Grid: 2 cols on mobile (320px..430px), 3 cols on tablet, 4 cols on desktop */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
         {products.map(product => (
           <ProductCard
             key={product.id}

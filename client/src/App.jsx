@@ -21,7 +21,7 @@ import StoreDetails from './pages/StoreDetails';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 text-gray-900 font-sans antialiased">
+    <div className="min-h-screen flex flex-col bg-[#0b0f17] text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white">
       <Navbar />
       <main className="flex-1">
         <Routes>
