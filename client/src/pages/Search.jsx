@@ -40,28 +40,28 @@ export default function Search() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       
       {/* Search Bar Header */}
-      <div className="bg-[#111827] rounded-3xl p-5 sm:p-6 border border-slate-800 shadow-md mb-8">
-        <h1 className="text-xl font-black text-white flex items-center">
-          <SearchIcon className="w-5 h-5 text-blue-400 mr-2" />
+      <div className="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200 shadow-sm mb-8">
+        <h1 className="text-xl font-black text-slate-900 flex items-center">
+          <SearchIcon className="w-5 h-5 text-blue-600 mr-2" />
           <span>Search Results for "{query || 'All Items'}"</span>
         </h1>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-slate-500 mt-1">
           Found {filteredProducts.length} items matching your query in Subhash Stores inventory
         </p>
 
         {/* Filter Toggle */}
-        <div className="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
-          <label className="flex items-center space-x-2 text-xs font-semibold text-slate-300 cursor-pointer">
+        <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
+          <label className="flex items-center space-x-2 text-xs font-semibold text-slate-700 cursor-pointer">
             <input
               type="checkbox"
               checked={onlyInStock}
               onChange={(e) => setOnlyInStock(e.target.checked)}
-              className="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 bg-slate-900 border-slate-700"
+              className="rounded text-blue-600 focus:ring-blue-500 w-4 h-4 bg-slate-100 border-slate-300"
             />
             <span>Show Only In-Stock Products</span>
           </label>
 
-          <span className="text-xs text-slate-400">
+          <span className="text-xs text-slate-500">
             {products.filter(p => p.stock_qty === 0).length} out-of-stock items available for smart replacements
           </span>
         </div>
@@ -71,10 +71,10 @@ export default function Search() {
       {loading ? (
         <GridSkeleton count={8} />
       ) : filteredProducts.length === 0 ? (
-        <div className="bg-[#111827] rounded-3xl p-12 text-center text-slate-400 border border-slate-800">
-          <AlertTriangle className="w-12 h-12 text-amber-400 mx-auto mb-3" />
-          <h3 className="text-base font-bold text-white">No products matching "{query}"</h3>
-          <p className="text-xs text-slate-400 mt-1">Try searching for atta, milk, oil, tea, or biscuits.</p>
+        <div className="bg-white rounded-3xl p-12 text-center text-slate-500 border border-slate-200 shadow-sm">
+          <AlertTriangle className="w-12 h-12 text-amber-500 mx-auto mb-3" />
+          <h3 className="text-base font-bold text-slate-900">No products matching "{query}"</h3>
+          <p className="text-xs text-slate-500 mt-1">Try searching for atta, milk, oil, tea, or biscuits.</p>
         </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">

@@ -20,15 +20,15 @@ export default function RecommendationRow({ title, subtitle, icon, products, onO
         <div>
           <div className="flex items-center space-x-2">
             {getIcon()}
-            <h2 className="text-lg sm:text-xl font-black text-white tracking-tight">{title}</h2>
+            <h2 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight">{title}</h2>
             {badgeText && (
-              <span className="bg-blue-500/20 text-blue-300 border border-blue-500/30 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider hidden sm:inline-block">
+              <span className="bg-blue-50 text-blue-700 border border-blue-200 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider hidden sm:inline-block">
                 {badgeText}
               </span>
             )}
           </div>
           {subtitle && (
-            <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5 font-medium italic">
+            <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 font-medium italic">
               "{subtitle}"
             </p>
           )}

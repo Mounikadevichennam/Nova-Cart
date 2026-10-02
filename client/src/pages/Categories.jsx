@@ -61,9 +61,9 @@ export default function Categories() {
         
         {/* Category Sidebar */}
         <aside className="w-full lg:w-64 shrink-0">
-          <div className="bg-[#111827] rounded-2xl border border-slate-800 p-4 sticky top-24">
-            <div className="flex items-center space-x-2 font-bold text-xs text-white uppercase tracking-wider mb-3 pb-2.5 border-b border-slate-800">
-              <Filter className="w-4 h-4 text-blue-400" />
+          <div className="bg-white rounded-2xl border border-slate-200 p-4 sticky top-24 shadow-sm">
+            <div className="flex items-center space-x-2 font-bold text-xs text-slate-900 uppercase tracking-wider mb-3 pb-2.5 border-b border-slate-100">
+              <Filter className="w-4 h-4 text-blue-600" />
               <span>Categories</span>
             </div>
 
@@ -73,7 +73,7 @@ export default function Categories() {
                 className={`w-full text-left px-3 py-2 rounded-xl text-xs font-semibold transition-all ${
                   !selectedSlug
                     ? 'bg-blue-600 text-white shadow-sm'
-                    : 'text-slate-300 hover:bg-slate-800'
+                    : 'text-slate-700 hover:bg-slate-50'
                 }`}
               >
                 All Products
@@ -86,7 +86,7 @@ export default function Categories() {
                   className={`w-full text-left px-3 py-2 rounded-xl text-xs font-semibold transition-all flex items-center justify-between ${
                     selectedSlug === cat.slug
                       ? 'bg-blue-600 text-white shadow-sm'
-                      : 'text-slate-300 hover:bg-slate-800'
+                      : 'text-slate-700 hover:bg-slate-50'
                   }`}
                 >
                   <span className="line-clamp-1">{cat.name}</span>
@@ -101,10 +101,10 @@ export default function Categories() {
           {loading ? (
             <GridSkeleton count={8} />
           ) : products.length === 0 ? (
-            <div className="bg-[#111827] rounded-2xl border border-slate-800 p-12 text-center text-slate-400">
-              <ShoppingBag className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-              <h3 className="text-sm font-bold text-white">No products found</h3>
-              <p className="text-xs text-slate-400 mt-1">Try selecting another category.</p>
+            <div className="bg-white rounded-2xl border border-slate-200 p-12 text-center text-slate-500 shadow-sm">
+              <ShoppingBag className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+              <h3 className="text-sm font-bold text-slate-900">No products found</h3>
+              <p className="text-xs text-slate-500 mt-1">Try selecting another category.</p>
             </div>
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">

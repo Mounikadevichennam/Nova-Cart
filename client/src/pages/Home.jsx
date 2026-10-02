@@ -151,17 +151,17 @@ export default function Home() {
       </div>
 
       {/* OUT OF STOCK INTELLIGENCE DEMO BANNER */}
-      <div id="oos-demo" className="bg-[#111827] border border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-6 relative overflow-hidden shadow-md">
+      <div id="oos-demo" className="bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-6 relative overflow-hidden shadow-sm">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div>
             <div className="inline-flex items-center space-x-1 bg-red-600 text-white text-[10px] font-black px-2 py-0.5 rounded uppercase tracking-wider mb-1.5">
               <ShieldAlert className="w-3 h-3" />
               <span>Core Business Feature</span>
             </div>
-            <h3 className="text-base sm:text-lg font-black text-white">
+            <h3 className="text-base sm:text-lg font-black text-slate-900">
               Smart Out-of-Stock Intelligence Engine
             </h3>
-            <p className="text-xs text-slate-400 mt-0.5 max-w-xl">
+            <p className="text-xs text-slate-500 mt-0.5 max-w-xl">
               29% of quick-commerce users experience ghost availability. Click an unavailable item below to see NOVA CART's price-matched alternative replacement in action!
             </p>
           </div>
@@ -171,14 +171,14 @@ export default function Home() {
               <button
                 key={prod.id}
                 onClick={() => handleOpenOosModal(prod)}
-                className="bg-[#1f2937] border border-slate-700 hover:border-red-500 p-2 sm:px-3.5 sm:py-2.5 rounded-xl sm:rounded-2xl text-xs text-left shadow-sm transition-all group flex items-center space-x-2 flex-1 sm:flex-none"
+                className="bg-slate-50 border border-slate-200 hover:border-red-500 p-2 sm:px-3.5 sm:py-2.5 rounded-xl sm:rounded-2xl text-xs text-left shadow-sm transition-all group flex items-center space-x-2 flex-1 sm:flex-none"
               >
                 <img src={prod.image_url} alt={prod.name} className="w-7 h-7 sm:w-8 sm:h-8 object-contain shrink-0" />
                 <div>
-                  <span className="block font-bold text-white line-clamp-1 text-[10px] sm:text-[11px] group-hover:text-red-400">
+                  <span className="block font-bold text-slate-900 line-clamp-1 text-[10px] sm:text-[11px] group-hover:text-red-600">
                     {prod.name}
                   </span>
-                  <span className="text-[9px] sm:text-[10px] text-red-400 font-extrabold uppercase">OUT OF STOCK • Demo</span>
+                  <span className="text-[9px] sm:text-[10px] text-red-600 font-extrabold uppercase">OUT OF STOCK • Demo</span>
                 </div>
               </button>
             ))}

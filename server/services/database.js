@@ -165,7 +165,7 @@ export const db = {
 
     // Apply filters
     if (categorySlug) {
-      const cat = state.categories.find(c => c.slug === categorySlug);
+      const cat = state.categories.find(c => c.slug === categorySlug || c.id === categorySlug);
       if (cat) {
         result = result.filter(p => p.category_id === cat.id);
       }

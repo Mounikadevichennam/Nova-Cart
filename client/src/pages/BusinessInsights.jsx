@@ -80,71 +80,71 @@ export default function BusinessInsights() {
 
       {/* CORE KPI CARDS (REAL APP DATA) */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-[#111827] rounded-2xl border border-slate-800 p-5 shadow-sm">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-semibold">
+        <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+          <div className="flex items-center justify-between text-xs text-slate-500 font-semibold">
             <span>Total Orders (App Data)</span>
-            <ShoppingBag className="w-4 h-4 text-emerald-400" />
+            <ShoppingBag className="w-4 h-4 text-emerald-600" />
           </div>
-          <span className="text-2xl font-black text-white mt-2 block">{summary.totalOrders}</span>
-          <span className="text-[11px] text-emerald-400 font-bold">Avg Order Value: ₹{summary.averageOrderValue}</span>
+          <span className="text-2xl font-black text-slate-900 mt-2 block">{summary.totalOrders}</span>
+          <span className="text-[11px] text-emerald-600 font-bold">Avg Order Value: ₹{summary.averageOrderValue}</span>
         </div>
 
-        <div className="bg-[#111827] rounded-2xl border border-slate-800 p-5 shadow-sm">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-semibold">
+        <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+          <div className="flex items-center justify-between text-xs text-slate-500 font-semibold">
             <span>Repeat Customers Baseline</span>
-            <Users className="w-4 h-4 text-blue-400" />
+            <Users className="w-4 h-4 text-blue-600" />
           </div>
-          <span className="text-2xl font-black text-white mt-2 block">27%</span>
-          <span className="text-[11px] text-amber-400 font-bold">Down from 41% baseline</span>
+          <span className="text-2xl font-black text-slate-900 mt-2 block">27%</span>
+          <span className="text-[11px] text-amber-600 font-bold">Down from 41% baseline</span>
         </div>
 
-        <div className="bg-[#111827] rounded-2xl border border-slate-800 p-5 shadow-sm">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-semibold">
+        <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+          <div className="flex items-center justify-between text-xs text-slate-500 font-semibold">
             <span>Store OOS Products</span>
-            <AlertTriangle className="w-4 h-4 text-red-400" />
+            <AlertTriangle className="w-4 h-4 text-red-600" />
           </div>
-          <span className="text-2xl font-black text-red-400 mt-2 block">{summary.outOfStockCount} Items</span>
-          <span className="text-[11px] text-red-400 font-bold">35% cancellations root cause</span>
+          <span className="text-2xl font-black text-red-600 mt-2 block">{summary.outOfStockCount} Items</span>
+          <span className="text-[11px] text-red-600 font-bold">35% cancellations root cause</span>
         </div>
 
-        <div className="bg-[#111827] rounded-2xl border border-slate-800 p-5 shadow-sm">
-          <div className="flex items-center justify-between text-xs text-slate-400 font-semibold">
+        <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+          <div className="flex items-center justify-between text-xs text-slate-500 font-semibold">
             <span>Support Tickets</span>
-            <HelpCircle className="w-4 h-4 text-purple-400" />
+            <HelpCircle className="w-4 h-4 text-purple-600" />
           </div>
-          <span className="text-2xl font-black text-white mt-2 block">{summary.openSupportTickets} Open</span>
-          <span className="text-[11px] text-slate-400">5,900 tickets/mo platform wide</span>
+          <span className="text-2xl font-black text-slate-900 mt-2 block">{summary.openSupportTickets} Open</span>
+          <span className="text-[11px] text-slate-500">5,900 tickets/mo platform wide</span>
         </div>
       </div>
 
       {/* PROJECTED TARGET OUTCOME & EXPECTED BUSINESS IMPACT */}
-      <div className="bg-gradient-to-br from-emerald-950/40 via-[#111827] to-emerald-900/30 border border-emerald-500/40 rounded-3xl p-6 shadow-md">
-        <div className="flex items-center space-x-2 text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2">
-          <Target className="w-4 h-4 text-emerald-400" />
+      <div className="bg-emerald-50 border border-emerald-200 rounded-3xl p-6 shadow-sm">
+        <div className="flex items-center space-x-2 text-xs font-bold text-emerald-700 uppercase tracking-wider mb-2">
+          <Target className="w-4 h-4 text-emerald-600" />
           <span>PROJECTED TARGET OUTCOMES (EXPECTED BUSINESS IMPACT)</span>
         </div>
-        <h3 className="text-lg font-black text-white mb-1">
+        <h3 className="text-lg font-black text-slate-900 mb-1">
           Expected Business Impact Model
         </h3>
-        <p className="text-xs text-slate-400 mb-4">
+        <p className="text-xs text-slate-600 mb-4">
           The metrics below represent explicitly calculated target projections based on NOVA CART's platform deployment:
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {targetImpacts.map((item, idx) => (
-            <div key={idx} className="bg-[#111827] rounded-2xl p-4 border border-emerald-500/30 shadow-sm flex flex-col justify-between">
+            <div key={idx} className="bg-white rounded-2xl p-4 border border-emerald-200 shadow-sm flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-black uppercase tracking-wider text-emerald-300 bg-emerald-500/20 border border-emerald-500/30 px-2 py-0.5 rounded">
+                <span className="text-[10px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded">
                   PROJECTED TARGET OUTCOME
                 </span>
-                <h4 className="font-extrabold text-xs text-white mt-2">{item.metric}</h4>
+                <h4 className="font-extrabold text-xs text-slate-900 mt-2">{item.metric}</h4>
                 <div className="mt-2 flex items-baseline space-x-2">
-                  <span className="text-xs text-red-400 line-through">Baseline: {item.current}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-emerald-400" />
-                  <span className="text-lg font-black text-emerald-400">{item.projected}</span>
+                  <span className="text-xs text-red-500 line-through">Baseline: {item.current}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-emerald-600" />
+                  <span className="text-lg font-black text-emerald-600">{item.projected}</span>
                 </div>
               </div>
-              <p className="text-[11px] text-slate-300 mt-3 font-medium pt-2 border-t border-slate-800">
+              <p className="text-[11px] text-slate-600 mt-3 font-medium pt-2 border-t border-slate-100">
                 {item.impact}
               </p>
             </div>
@@ -156,30 +156,30 @@ export default function BusinessInsights() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
         {/* Category Revenue Breakdown */}
-        <div className="bg-[#111827] rounded-3xl border border-slate-800 p-6 shadow-sm">
-          <h3 className="text-sm font-extrabold text-white mb-1">Sales Breakdown by Grocery Category</h3>
-          <p className="text-xs text-slate-400 mb-6">Multi-category buyers generate 2.4x higher repeat purchases</p>
+        <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm">
+          <h3 className="text-sm font-extrabold text-slate-900 mb-1">Sales Breakdown by Grocery Category</h3>
+          <p className="text-xs text-slate-500 mb-6">Multi-category buyers generate 2.4x higher repeat purchases</p>
 
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={categoryBreakdown} margin={{ top: 10, right: 10, left: -20, bottom: 20 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#334155" />
-                <XAxis dataKey="category" tick={{ fontSize: 10, fill: '#94a3b8' }} interval={0} angle={-15} textAnchor="end" />
-                <YAxis tick={{ fontSize: 10, fill: '#94a3b8' }} />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
+                <XAxis dataKey="category" tick={{ fontSize: 10, fill: '#64748b' }} interval={0} angle={-15} textAnchor="end" />
+                <YAxis tick={{ fontSize: 10, fill: '#64748b' }} />
                 <Tooltip
                   formatter={(val) => [`₹${val.toLocaleString()}`, 'Revenue']}
-                  contentStyle={{ backgroundColor: '#1e293b', borderColor: '#334155', borderRadius: '12px', fontSize: '12px', color: '#f8fafc' }}
+                  contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e2e8f0', borderRadius: '12px', fontSize: '12px', color: '#0f172a' }}
                 />
-                <Bar dataKey="revenue" fill="#10b981" radius={[6, 6, 0, 0]} />
+                <Bar dataKey="revenue" fill="#2563eb" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
         </div>
 
         {/* Root Cause of Cancellations */}
-        <div className="bg-[#111827] rounded-3xl border border-slate-800 p-6 shadow-sm">
-          <h3 className="text-sm font-extrabold text-white mb-1">Cancellations Root Cause Analysis</h3>
-          <p className="text-xs text-slate-400 mb-4">35% of total cancellations stem from out-of-stock items</p>
+        <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm">
+          <h3 className="text-sm font-extrabold text-slate-900 mb-1">Cancellations Root Cause Analysis</h3>
+          <p className="text-xs text-slate-500 mb-4">35% of total cancellations stem from out-of-stock items</p>
 
           <div className="h-64 w-full flex items-center justify-center">
             <ResponsiveContainer width="100%" height="100%">
@@ -200,17 +200,17 @@ export default function BusinessInsights() {
                 </Pie>
                 <Tooltip
                   formatter={(val) => [`${val}%`, 'Share']}
-                  contentStyle={{ backgroundColor: '#1e293b', borderColor: '#334155', borderRadius: '12px', fontSize: '12px', color: '#f8fafc' }}
+                  contentStyle={{ backgroundColor: '#ffffff', borderColor: '#e2e8f0', borderRadius: '12px', fontSize: '12px', color: '#0f172a' }}
                 />
               </PieChart>
             </ResponsiveContainer>
           </div>
 
-          <div className="grid grid-cols-2 gap-2 text-xs pt-2 border-t border-slate-800">
+          <div className="grid grid-cols-2 gap-2 text-xs pt-2 border-t border-slate-100">
             {cancellationReasons.map((item, idx) => (
               <div key={idx} className="flex items-center space-x-2">
                 <span className="w-3 h-3 rounded-full shrink-0" style={{ backgroundColor: item.color }}></span>
-                <span className="text-slate-300 text-[11px] line-clamp-1">{item.reason} ({item.percentage}%)</span>
+                <span className="text-slate-600 text-[11px] line-clamp-1">{item.reason} ({item.percentage}%)</span>
               </div>
             ))}
           </div>

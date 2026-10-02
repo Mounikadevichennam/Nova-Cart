@@ -103,19 +103,19 @@ export default function Support() {
 
       {/* NEW SUPPORT TICKET FORM */}
       {showForm && (
-        <form onSubmit={handleSubmitTicket} className="bg-[#111827] rounded-3xl border-2 border-blue-500/50 p-6 shadow-xl space-y-4">
-          <h2 className="text-base font-extrabold text-white pb-2 border-b border-slate-800 flex items-center">
-            <HelpCircle className="w-5 h-5 text-blue-400 mr-2" />
+        <form onSubmit={handleSubmitTicket} className="bg-white rounded-3xl border-2 border-blue-500/50 p-6 shadow-sm space-y-4">
+          <h2 className="text-base font-extrabold text-slate-900 pb-2 border-b border-slate-200 flex items-center">
+            <HelpCircle className="w-5 h-5 text-blue-600 mr-2" />
             <span>Create Support Ticket</span>
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">Select Order (Optional)</label>
+              <label className="block text-xs font-bold text-slate-700 mb-1">Select Order (Optional)</label>
               <select
                 value={selectedOrderNo}
                 onChange={(e) => setSelectedOrderNo(e.target.value)}
-                className="w-full bg-[#1f2937] border border-slate-700 rounded-xl p-2.5 text-xs text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs text-slate-900 focus:ring-2 focus:ring-blue-500 outline-none"
               >
                 <option value="">-- No specific order --</option>
                 {orders.map(o => (
@@ -127,11 +127,11 @@ export default function Support() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-300 mb-1">Issue Category</label>
+              <label className="block text-xs font-bold text-slate-700 mb-1">Issue Category</label>
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full bg-[#1f2937] border border-slate-700 rounded-xl p-2.5 text-xs text-white focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs text-slate-900 focus:ring-2 focus:ring-blue-500 outline-none"
               >
                 {supportCategories.map(cat => (
                   <option key={cat} value={cat}>{cat}</option>
@@ -141,26 +141,26 @@ export default function Support() {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Subject</label>
+            <label className="block text-xs font-bold text-slate-700 mb-1">Subject</label>
             <input
               type="text"
               required
               placeholder="Brief summary of the issue..."
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              className="w-full bg-[#1f2937] border border-slate-700 rounded-xl p-2.5 text-xs text-white focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs text-slate-900 focus:ring-2 focus:ring-blue-500 outline-none"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-300 mb-1">Description</label>
+            <label className="block text-xs font-bold text-slate-700 mb-1">Description</label>
             <textarea
               required
               rows={3}
               placeholder="Describe what happened in detail..."
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full bg-[#1f2937] border border-slate-700 rounded-xl p-2.5 text-xs text-white focus:ring-2 focus:ring-blue-500 outline-none"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs text-slate-900 focus:ring-2 focus:ring-blue-500 outline-none"
             />
           </div>
 
@@ -176,21 +176,21 @@ export default function Support() {
 
       {/* TICKETS LIST */}
       <div className="space-y-4">
-        <h2 className="text-xs font-extrabold text-slate-400 uppercase tracking-wider">Your Active & Resolved Tickets</h2>
+        <h2 className="text-xs font-extrabold text-slate-500 uppercase tracking-wider">Your Active & Resolved Tickets</h2>
 
         {loading ? (
-          <div className="py-8 text-center text-xs text-slate-400">Loading support tickets...</div>
+          <div className="py-8 text-center text-xs text-slate-500">Loading support tickets...</div>
         ) : tickets.length === 0 ? (
-          <div className="bg-[#111827] rounded-3xl p-8 text-center text-slate-400 border border-slate-800 text-xs">
+          <div className="bg-white rounded-3xl p-8 text-center text-slate-500 border border-slate-200 text-xs shadow-sm">
             No support tickets submitted yet.
           </div>
         ) : (
           tickets.map(ticket => (
-            <div key={ticket.id} className="bg-[#111827] rounded-2xl border border-slate-800 p-5 shadow-md space-y-3">
+            <div key={ticket.id} className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <span className="font-extrabold text-sm text-white">{ticket.ticket_number}</span>
-                  <span className="text-xs bg-[#1f2937] text-slate-300 font-bold px-2 py-0.5 rounded border border-slate-700">
+                  <span className="font-extrabold text-sm text-slate-900">{ticket.ticket_number}</span>
+                  <span className="text-xs bg-slate-100 text-slate-700 font-bold px-2 py-0.5 rounded border border-slate-200">
                     {ticket.category}
                   </span>
                 </div>
@@ -198,19 +198,19 @@ export default function Support() {
               </div>
 
               <div>
-                <h4 className="font-bold text-sm text-white">{ticket.subject}</h4>
-                <p className="text-xs text-slate-300 mt-1">{ticket.description}</p>
+                <h4 className="font-bold text-sm text-slate-900">{ticket.subject}</h4>
+                <p className="text-xs text-slate-600 mt-1">{ticket.description}</p>
               </div>
 
               {ticket.resolution_notes && (
-                <div className="bg-[#1f2937]/70 border border-slate-800 rounded-xl p-3 text-xs text-slate-200">
-                  <span className="font-bold block text-blue-400">Support Resolution:</span>
-                  <p className="mt-0.5 text-slate-300">{ticket.resolution_notes}</p>
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-slate-700">
+                  <span className="font-bold block text-blue-600">Support Resolution:</span>
+                  <p className="mt-0.5 text-slate-600">{ticket.resolution_notes}</p>
                 </div>
               )}
 
-              <div className="text-[11px] text-slate-500 pt-2 border-t border-slate-800/80 flex justify-between">
-                <span>Associated Order: <strong className="text-white">{ticket.order_number || 'None'}</strong></span>
+              <div className="text-[11px] text-slate-500 pt-2 border-t border-slate-100 flex justify-between">
+                <span>Associated Order: <strong className="text-slate-900">{ticket.order_number || 'None'}</strong></span>
                 <span>Submitted: {new Date(ticket.created_at).toLocaleString()}</span>
               </div>
             </div>

@@ -90,11 +90,11 @@ export default function ProductDetail() {
       </Link>
 
       {/* Main Product Card */}
-      <div className="bg-[#111827] rounded-3xl border border-slate-800 p-5 md:p-8 shadow-md">
+      <div className="bg-white rounded-3xl border border-slate-200 p-5 md:p-8 shadow-sm">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           {/* Left: Product Image */}
-          <div className="bg-[#1f2937]/50 rounded-2xl p-6 flex items-center justify-center relative border border-slate-800">
+          <div className="bg-slate-50 rounded-2xl p-6 flex items-center justify-center relative border border-slate-200">
             {isOos && (
               <span className="absolute top-4 left-4 bg-red-600 text-white text-xs font-black px-3 py-1 rounded-md uppercase tracking-wider shadow-sm flex items-center space-x-1">
                 <AlertTriangle className="w-3.5 h-3.5" />
@@ -112,24 +112,24 @@ export default function ProductDetail() {
           <div className="flex flex-col justify-between">
             <div>
               <div className="flex items-center space-x-2 text-xs mb-2">
-                <span className="font-extrabold text-blue-300 bg-blue-500/20 border border-blue-500/30 px-2.5 py-0.5 rounded-md">
+                <span className="font-extrabold text-blue-700 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-md">
                   {product.brand}
                 </span>
-                <span className="text-slate-600">•</span>
-                <span className="text-slate-400 font-semibold">{product.category_name}</span>
+                <span className="text-slate-300">•</span>
+                <span className="text-slate-500 font-semibold">{product.category_name}</span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
                 {product.name}
               </h1>
 
-              <p className="text-xs text-slate-400 mt-1">Pack Size: <strong className="text-white">{product.unit}</strong></p>
+              <p className="text-xs text-slate-500 mt-1">Pack Size: <strong className="text-slate-900">{product.unit}</strong></p>
 
               {/* Price & Discount */}
               <div className="mt-4 flex items-baseline space-x-3">
-                <span className="text-3xl font-black text-white">₹{product.price}</span>
+                <span className="text-3xl font-black text-slate-900">₹{product.price}</span>
                 {product.original_price && product.original_price > product.price && (
-                  <span className="text-base text-slate-500 line-through">₹{product.original_price}</span>
+                  <span className="text-base text-slate-400 line-through">₹{product.original_price}</span>
                 )}
                 {product.discount_percent > 0 && (
                   <span className="bg-blue-600 text-white text-xs font-black px-2.5 py-0.5 rounded-full">
@@ -138,36 +138,36 @@ export default function ProductDetail() {
                 )}
               </div>
 
-              <p className="text-xs text-slate-300 mt-4 leading-relaxed">
+              <p className="text-xs text-slate-600 mt-4 leading-relaxed">
                 {product.description}
               </p>
 
               {/* Delivery ETA */}
-              <div className="mt-5 p-3 rounded-2xl bg-[#1f2937]/70 border border-slate-800 flex items-center space-x-3 text-xs text-slate-300">
-                <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>Delivery in <strong className="text-emerald-400">18 mins</strong> from Subhash Stores — Andheri East</span>
+              <div className="mt-5 p-3 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center space-x-3 text-xs text-slate-700">
+                <Clock className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Delivery in <strong className="text-emerald-700">18 mins</strong> from Subhash Stores — Andheri East</span>
               </div>
             </div>
 
             {/* ACTION AREA */}
-            <div className="mt-8 pt-6 border-t border-slate-800">
+            <div className="mt-8 pt-6 border-t border-slate-200">
               {isOos ? (
                 <div className="space-y-4">
-                  <div className="bg-red-500/10 border border-red-500/30 rounded-2xl p-4 text-xs text-red-300">
-                    <p className="font-bold flex items-center text-red-400">
+                  <div className="bg-red-50 border border-red-200 rounded-2xl p-4 text-xs text-red-800">
+                    <p className="font-bold flex items-center text-red-700">
                       <AlertTriangle className="w-4 h-4 mr-1.5 shrink-0" />
                       THIS PRODUCT IS OUT OF STOCK
                     </p>
-                    <p className="mt-1 text-slate-300">
+                    <p className="mt-1 text-slate-600">
                       Normal Add to Cart is disabled. Explore our rule-based alternative replacement below.
                     </p>
                   </div>
 
                   {/* Inline Best Alternative Replacement Box */}
                   {oosData.bestAlternative && (
-                    <div className="bg-[#1f2937]/80 border-2 border-blue-500/60 rounded-2xl p-4">
-                      <div className="flex items-center space-x-2 text-xs font-bold text-blue-400 uppercase tracking-wider mb-2">
-                        <Sparkles className="w-4 h-4 text-amber-400" />
+                    <div className="bg-slate-50 border-2 border-blue-500/60 rounded-2xl p-4">
+                      <div className="flex items-center space-x-2 text-xs font-bold text-blue-600 uppercase tracking-wider mb-2">
+                        <Sparkles className="w-4 h-4 text-amber-500" />
                         <span>Best Match Available Replacement</span>
                       </div>
 
@@ -176,13 +176,13 @@ export default function ProductDetail() {
                           <img
                             src={oosData.bestAlternative.image_url}
                             alt={oosData.bestAlternative.name}
-                            className="w-14 h-14 object-contain bg-[#111827] rounded-xl p-1 border border-slate-800"
+                            className="w-14 h-14 object-contain bg-white rounded-xl p-1 border border-slate-200"
                           />
                           <div>
-                            <p className="font-extrabold text-sm text-white line-clamp-1">
+                            <p className="font-extrabold text-sm text-slate-900 line-clamp-1">
                               {oosData.bestAlternative.name}
                             </p>
-                            <p className="text-xs text-slate-400">
+                            <p className="text-xs text-slate-500">
                               {oosData.bestAlternative.unit} • ₹{oosData.bestAlternative.price}
                             </p>
                           </div>
@@ -190,7 +190,7 @@ export default function ProductDetail() {
 
                         <button
                           onClick={() => addToCart(oosData.bestAlternative, 1, `Added Smart Alternative: ${oosData.bestAlternative.name}`)}
-                          className="bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-md shadow-blue-600/30 flex items-center space-x-1.5 shrink-0"
+                          className="bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs px-4 py-2.5 rounded-xl shadow-md shadow-blue-600/20 flex items-center space-x-1.5 shrink-0"
                         >
                           <ShoppingCart className="w-4 h-4" />
                           <span>Add Alternative</span>
@@ -203,7 +203,7 @@ export default function ProductDetail() {
                 <div className="flex items-center space-x-4">
                   <button
                     onClick={() => addToCart(product, 1)}
-                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm py-3.5 px-6 rounded-2xl shadow-lg shadow-blue-600/30 flex items-center justify-center space-x-2 transition-all"
+                    className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm py-3.5 px-6 rounded-2xl shadow-lg shadow-blue-600/20 flex items-center justify-center space-x-2 transition-all"
                   >
                     <ShoppingCart className="w-5 h-5" />
                     <span>{cartQty > 0 ? `In Cart (${cartQty} items)` : 'Add to Cart'}</span>

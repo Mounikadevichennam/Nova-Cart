@@ -86,36 +86,36 @@ export default function OrderDetail() {
       </Link>
 
       {/* Header */}
-      <div className="bg-[#111827] rounded-3xl border border-slate-800 p-6 shadow-md flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center space-x-3">
-            <h1 className="text-2xl font-black text-white">{order.order_number}</h1>
+            <h1 className="text-2xl font-black text-slate-900">{order.order_number}</h1>
             <StatusBadge status={order.status} />
           </div>
-          <p className="text-xs text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 mt-1">
             Placed on {new Date(order.created_at).toLocaleString()} • {order.payment_method}
           </p>
         </div>
 
         <Link
           to={`/support?orderId=${order.order_number}`}
-          className="bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 font-extrabold text-xs px-4 py-2.5 rounded-xl flex items-center space-x-1.5 transition-colors self-start md:self-auto"
+          className="bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 font-extrabold text-xs px-4 py-2.5 rounded-xl flex items-center space-x-1.5 transition-colors self-start md:self-auto"
         >
-          <HelpCircle className="w-4 h-4 text-amber-400" />
+          <HelpCircle className="w-4 h-4 text-amber-600" />
           <span>Report Issue / Get Support</span>
         </Link>
       </div>
 
       {/* DELAY NOTICE BANNER */}
       {isDelayed && (
-        <div className="bg-red-500/10 border border-red-500/30 rounded-3xl p-5 text-red-300 flex items-start space-x-3">
-          <AlertTriangle className="w-6 h-6 text-red-400 shrink-0 mt-0.5" />
+        <div className="bg-red-50 border border-red-200 rounded-3xl p-5 text-red-900 flex items-start space-x-3 shadow-sm">
+          <AlertTriangle className="w-6 h-6 text-red-600 shrink-0 mt-0.5" />
           <div>
-            <h3 className="font-extrabold text-sm text-red-400">Order Delay Notice</h3>
-            <p className="text-xs text-slate-200 font-semibold mt-0.5">
+            <h3 className="font-extrabold text-sm text-red-700">Order Delay Notice</h3>
+            <p className="text-xs text-slate-700 font-semibold mt-0.5">
               Your order is running 15 minutes late due to inventory batch restocking queue at Subhash Stores.
             </p>
-            <p className="text-[11px] text-red-400 mt-1">
+            <p className="text-[11px] text-red-700 mt-1">
               Revised Delivery Time: <strong>+{order.delay_minutes || 15} Mins</strong>
             </p>
           </div>
@@ -123,8 +123,8 @@ export default function OrderDetail() {
       )}
 
       {/* VISUAL TRACKING TIMELINE STEPPER */}
-      <div className="bg-[#111827] rounded-3xl border border-slate-800 p-6 sm:p-8 shadow-md">
-        <h2 className="text-base font-extrabold text-white mb-6">Live Order Progress</h2>
+      <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <h2 className="text-base font-extrabold text-slate-900 mb-6">Live Order Progress</h2>
 
         <div className="relative flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           {steps.map((step, idx) => {
@@ -139,17 +139,17 @@ export default function OrderDetail() {
                       ? 'bg-red-600 text-white ring-4 ring-red-500/20'
                       : isDone || isCurrent
                       ? 'bg-blue-600 text-white ring-4 ring-blue-500/20'
-                      : 'bg-slate-800 text-slate-500'
+                      : 'bg-slate-100 text-slate-400 border border-slate-200'
                   }`}
                 >
                   {isDone && !isCurrent ? <CheckCircle2 className="w-5 h-5" /> : idx + 1}
                 </div>
 
                 <div className="md:mt-3">
-                  <h4 className={`font-bold text-xs ${isCurrent ? 'text-blue-400' : 'text-white'}`}>
+                  <h4 className={`font-bold text-xs ${isCurrent ? 'text-blue-600' : 'text-slate-900'}`}>
                     {step.label}
                   </h4>
-                  <p className="text-[11px] text-slate-400 mt-0.5">{step.desc}</p>
+                  <p className="text-[11px] text-slate-500 mt-0.5">{step.desc}</p>
                 </div>
               </div>
             );
@@ -161,55 +161,55 @@ export default function OrderDetail() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* Items List */}
-        <div className="bg-[#111827] rounded-3xl border border-slate-800 p-6 shadow-md">
-          <h3 className="text-sm font-extrabold text-white mb-4 pb-2 border-b border-slate-800">
+        <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm">
+          <h3 className="text-sm font-extrabold text-slate-900 mb-4 pb-2 border-b border-slate-200">
             Ordered Items ({order.items?.length || 0})
           </h3>
 
           <div className="space-y-3 max-h-60 overflow-y-auto pr-1">
             {(order.items || []).map(item => (
-              <div key={item.id} className="flex items-center justify-between text-xs py-1 border-b border-slate-800/60">
+              <div key={item.id} className="flex items-center justify-between text-xs py-1 border-b border-slate-100">
                 <div>
-                  <span className="font-bold text-white">{item.product_name}</span>
-                  <span className="text-slate-400 block text-[11px]">Qty: {item.quantity} x ₹{item.price}</span>
+                  <span className="font-bold text-slate-900">{item.product_name}</span>
+                  <span className="text-slate-500 block text-[11px]">Qty: {item.quantity} x ₹{item.price}</span>
                 </div>
-                <span className="font-extrabold text-white">₹{item.item_total}</span>
+                <span className="font-extrabold text-slate-900">₹{item.item_total}</span>
               </div>
             ))}
           </div>
 
-          <div className="mt-4 pt-3 border-t border-slate-800 space-y-1 text-xs">
-            <div className="flex justify-between text-slate-400">
+          <div className="mt-4 pt-3 border-t border-slate-200 space-y-1 text-xs">
+            <div className="flex justify-between text-slate-500">
               <span>Subtotal</span>
-              <span className="text-white">₹{order.subtotal}</span>
+              <span className="text-slate-900">₹{order.subtotal}</span>
             </div>
-            <div className="flex justify-between text-slate-400">
+            <div className="flex justify-between text-slate-500">
               <span>Delivery Fee</span>
-              <span className="text-white">₹{order.delivery_fee}</span>
+              <span className="text-slate-900">₹{order.delivery_fee}</span>
             </div>
-            <div className="flex justify-between font-black text-sm text-white pt-1">
+            <div className="flex justify-between font-black text-sm text-slate-900 pt-1">
               <span>Total Paid</span>
-              <span className="text-blue-400">₹{order.total_amount}</span>
+              <span className="text-blue-600">₹{order.total_amount}</span>
             </div>
           </div>
         </div>
 
         {/* Fulfillment Store & Address */}
-        <div className="bg-[#111827] rounded-3xl border border-slate-800 p-6 shadow-md space-y-4">
+        <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm space-y-4">
           <div>
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Fulfilling Store</h3>
-            <div className="flex items-start space-x-3 bg-[#1f2937]/50 p-3 rounded-2xl border border-slate-800 text-xs">
-              <Store className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
+            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Fulfilling Store</h3>
+            <div className="flex items-start space-x-3 bg-slate-50 p-3 rounded-2xl border border-slate-200 text-xs">
+              <Store className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
               <div>
-                <p className="font-extrabold text-white">{order.store_name}</p>
-                <p className="text-slate-400 text-[11px] mt-0.5">Shop 14, Marol Naka, Andheri East, Mumbai</p>
+                <p className="font-extrabold text-slate-900">{order.store_name}</p>
+                <p className="text-slate-500 text-[11px] mt-0.5">Shop 14, Marol Naka, Andheri East, Mumbai</p>
               </div>
             </div>
           </div>
 
           <div>
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Delivery Address</h3>
-            <div className="flex items-start space-x-3 bg-[#1f2937]/50 p-3 rounded-2xl border border-slate-800 text-xs text-slate-300">
+            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Delivery Address</h3>
+            <div className="flex items-start space-x-3 bg-slate-50 p-3 rounded-2xl border border-slate-200 text-xs text-slate-700">
               <MapPin className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
               <p className="font-medium">{order.delivery_address}</p>
             </div>
